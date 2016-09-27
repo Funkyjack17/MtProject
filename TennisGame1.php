@@ -26,22 +26,27 @@ class TennisGame1 implements TennisGame
     public function getScore()
     {
         $score = "";
-        if ($this->m_score1 == $this->m_score2) {
-            switch ($this->m_score1) {
-                case 0:
-                    $score = "Love-All";
-                    break;
-                case 1:
-                    $score = "Fifteen-All";
-                    break;
-                case 2:
-                    $score = "Thirty-All";
-                    break;
-                default:
-                    $score = "Deuce";
-                    break;
-            }
-        } elseif ($this->m_score1 >= 4 || $this->m_score2 >= 4) {
+        if ($this->m_score1 == $this->m_score2 && $this->m_score1 == 0 ) {
+            $score = "Love-All";
+            return;
+        }
+
+        if ($this->m_score1 == $this->m_score2 && $this->m_score1 == 1 ) {
+            $score = "Fifteen-All";
+            return;
+        }
+
+        if ($this->m_score1 == $this->m_score2 && $this->m_score1 == 2 ) {
+            $score = "Thirty-All";
+            return;
+        }
+
+        if ($this->m_score1 == $this->m_score2 && $this->m_score1 == 3 ) {
+            $score = "Deuce";
+            return;
+        }
+
+         elseif ($this->m_score1 >= 4 || $this->m_score2 >= 4) {
             $minusResult = $this->m_score1 - $this->m_score2;
             if ($minusResult == 1) {
                 $score = "Advantage player1";
